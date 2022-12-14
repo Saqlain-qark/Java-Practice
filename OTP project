@@ -1,0 +1,57 @@
+import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
+class WinOtp extends Frame implements ActionListener,TextListener
+{
+    Button b,b1;
+    TextField t,otp;
+    Label l1,l2,head;
+    WinOtp()
+    {
+        setSize(400,300);
+        head=new Label("Login Via OTP ");
+        head.setBounds(100,40,170,20);
+         head.setFont(new Font("Arial",Font.BOLD,20));
+        l1=new Label("Enter Mobile no:");
+        t=new TextField();
+        l2=new Label("Enter OTP");
+         otp=new TextField();
+        b=new Button("SendOTP");
+        b1=new Button("SignIn");
+        setLocation(450,240);
+        setLayout(null);
+        l1.setBounds(40,80,150,20);
+        t.setBounds(200,80,100,20);
+        l2.setBounds(40,110,150,20);
+        otp.setBounds(200,110,100,20);
+        b.setBounds(310,80,70,20);
+        b1.setBounds(310,80,70,20);
+        b.addActionListener(this);
+        b1.addActionListener(this);
+        t.addTextListener(this);
+        add(head);add(l1);add(t);add(l2);add(b);add(otp);add(b1);;
+        l2.setVisible(false);otp.setVisible(false);b1.setVisible(false);b.setVisible(false); 
+       setVisible(true);
+    }
+    public void textValueChanged(TextEvent e)
+    {
+          int len=t.getText().length();
+         t.setForeground(new Color(15*len,20*len,15*len));
+          if(len>=10)
+            {
+        l2.setVisible(true);otp.setVisible(true);b.setVisible(true);
+            }
+          if(len<10)
+            {
+              l2.setVisible(false);otp.setVisible(false);b1.setVisible(false);b.setVisible(false); 
+           }   
+    }
+    public void actionPerformed(ActionEvent e)
+     {
+             
+     }
+    public static void main(String args[])
+     {
+        WinOtp ob=new WinOtp();
+     }
+}

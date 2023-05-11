@@ -1,2 +1,2 @@
-# Java-Projects
-For learning projects
+# Java-Practice
+For practicing java 
